@@ -10,6 +10,24 @@
 <img src="https://img.shields.io/badge/LIVE DEMO-FF4785?style=for-the-badge&logo=pythonanywhere&logoColor=white" alt="Live Demo">
 </a>
 </div>
+<p align="center">
+<i>간편하고 강력한 메모 관리 웹 애플리케이션으로 당신의 생각을 체계화하세요.</i>
+</p>
+<hr>
+<h3 align="center">✨ 주요 기능 ✨</h3>
+<p align="center">
+📝 메모 작성 및 저장<br>
+🔍 빠른 검색 및 조회<br>
+✏️ 손쉬운 편집 기능<br>
+🗑️ 간편한 삭제 옵션<br>
+📱 반응형 디자인으로 모바일 지원
+</p>
+<div align="center">
+<h3>🚀 지금 바로 시작하세요! 🚀</h3>
+<a href="https://kimminkyu.pythonanywhere.com" target="blank">
+<img src="https://img.shields.io/badge/메모 마스터 시작하기-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Start Now">
+</a>
+</div>
 
 ## 📜 프로젝트 설명 📜
 <p>
