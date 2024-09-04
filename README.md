@@ -1,10 +1,11 @@
-<a href="https://kimminkyu.pythonanywhere.com"><h1 align="center">🚀 사이트로 이동 🚀</h1></a>
+<h1 align="center">🚀 메모 어플리케이션 웹 서비스 🚀</h1>
+<strong>  <a href="https://kimminkyu.pythonanywhere.com">  </a></strong>
 
 ## 📜 프로젝트 설명 📜
 <p>
   🤔 이 프로젝트는 <a href="https://www.cursor.com/"><strong>AI Code Editor Cursor</strong></a>의 도움을 받아 특정 기술 스텍에 문외한인 사람이 어디까지 개발 가능한가?를 알아보기 위해 시작했습니다.
 
-  🔥 그 결과, <mark>2시간 30분 동안</mark> <strong><a href="https://kimminkyu.pythonanywhere.com">메모 애플리케이션 웹 서비스 (링크)</a></strong>를 만드는 데 성공했습니다. (기획부터 배포까지)
+  🔥 그 결과, <mark>2시간 30분 동안</mark> <strong><a href="https://kimminkyu.pythonanywhere.com">메모 애플리케이션 웹 서비스</a></strong>를 만드는 데 성공했습니다. (기획부터 배포까지)
 
   👍 flask 라이브러리를 비롯해 html, css, javascript에 대한 지식이 전무한 사람도 Cursor 내의 Claude AI 어시스턴트에게 질문하며 상당히 빠르게 기초적인 웹 서비스를 구현하는 것이 가능했습니다.
 
