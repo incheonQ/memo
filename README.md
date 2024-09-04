@@ -3,6 +3,18 @@
 <h3><strong><a href="https://kimminkyu.pythonanywhere.com"> 👉👉👉사이트로 이동👈👈👈 </a></strong></h3>
 </div>
 
+<h1 align="center">🚀 메모 마스터: 당신의 아이디어를 캡처하세요 🚀</h1>
+<p align="center">
+<img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
+<img src="https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite">
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+</p>
+<div align="center">
+<h3>🌟 지금 바로 경험해보세요! 🌟</h3>
+<a href="https://kimminkyu.pythonanywhere.com" target="blank">
+<img src="https://img.shields.io/badge/LIVE DEMO-FF4785?style=for-the-badge&logo=pythonanywhere&logoColor=white" alt="Live Demo">
+</a>
+
 ## 📜 프로젝트 설명 📜
 <p>
   🤔 이 프로젝트는 <a href="https://www.cursor.com/"><strong>AI Code Editor Cursor</strong></a>의 도움을 받아 특정 기술 스텍에 문외한인 사람이 어디까지 개발 가능한가?를 알아보기 위해 시작했습니다.
