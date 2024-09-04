@@ -54,3 +54,6 @@ sys.path.insert(0, project_folder)
 # Flask 애플리케이션 임포트
 from app import app as application  # 여기서 'app'은 여러분의 Flask 애플리케이션 파일명입니다.
 ```
+
+## 여담
+![image](https://github.com/user-attachments/assets/43a3e36f-1b00-4794-afee-4484614022db)
