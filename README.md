@@ -7,7 +7,7 @@
 <div align="center">
 <h3>🌟 지금 바로 경험해보세요! 🌟</h3>
 <a href="https://kimminkyu.pythonanywhere.com" target="blank">
-<img src="https://img.shields.io/badge/LIVE DEMO-FF4785?style=for-the-badge&logo=pythonanywhere&logoColor=white" alt="Live Demo">
+<img src="https://img.shields.io/badge/메모 마스터 시작하기-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Start Now">
 </a>
 </div>
 <p align="center">
