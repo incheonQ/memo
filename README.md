@@ -9,6 +9,7 @@
 <a href="https://kimminkyu.pythonanywhere.com" target="blank">
 <img src="https://img.shields.io/badge/LIVE DEMO-FF4785?style=for-the-badge&logo=pythonanywhere&logoColor=white" alt="Live Demo">
 </a>
+</div>
 
 ## 📜 프로젝트 설명 📜
 <p>
