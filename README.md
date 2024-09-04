@@ -1,8 +1,3 @@
-<h1 align="center">🚀 메모 어플리케이션 웹 서비스 🚀</h1>
-<div align="center">
-<h3><strong><a href="https://kimminkyu.pythonanywhere.com"> 👉👉👉사이트로 이동👈👈👈 </a></strong></h3>
-</div>
-
 <h1 align="center">🚀 메모 마스터: 당신의 아이디어를 캡처하세요 🚀</h1>
 <p align="center">
 <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
