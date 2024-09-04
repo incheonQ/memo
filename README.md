@@ -1,6 +1,8 @@
 ### Bash에서 실행
+```
   from app import db
    db.create_all()
+```
 
 ### PythonAnywhere의 WSGI 설정 파일
 ```python
