@@ -1,4 +1,4 @@
-<a href="https://kimminkyu.pythonanywhere.com">"<h1 align="center">사이트로 이동</h1></a>
+<a href="https://kimminkyu.pythonanywhere.com"><h1 align="center">🚀 사이트로 이동 🚀</h1></a>
 
 ## 📜 프로젝트 설명 📜
 <p>
