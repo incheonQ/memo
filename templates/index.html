@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메모 마스터</title>
+</head>
+<body>
+    <h1>메모 마스터</h1>
+
+    <form method="POST">
+        <input type="text" name="content" placeholder="메모 내용" required>
+        <input type="text" name="category" placeholder="카테고리">
+        <textarea name="details" placeholder="상세 내용"></textarea>
+        <button type="submit">추가</button>
+    </form>
+
+    <h2>카테고리</h2>
+    <ul>
+        <li><a href="{{ url_for('index') }}">전체</a></li>
+        {% for category in categories %}
+            {% if category[0] %}  <!-- 빈 카테고리는 표시하지 않음 -->
+                <li><a href="{{ url_for('filter_by_category', category=category[0]) }}">{{ category[0] }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <h2>메모 목록 {% if current_category %}({{ current_category }}){% endif %}</h2>
+    <ul>
+        {% for memo in memos %}
+            <li>
+            <a href="{{ url_for('memo_detail', id=memo.id) }}">{{ memo.content }}</a>
+            <small>({{ memo.category if memo.category else '카테고리 없음' }})</small>
+            <small>{{ memo.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+            <a href="{{ url_for('delete', id=memo.id) }}" onclick="return confirm('정말로 삭제하시겠습니까?');">삭제</a>
+        </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>
