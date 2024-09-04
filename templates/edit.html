@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>메모 수정 - 메모 애플리케이션</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+    {% extends "base.html" %}
+
+    {% block title %}메모 수정{% endblock %}
+    
+    {% block content %}
+        <h1>메모 수정</h1>
+        <form method="POST">
+            <div>
+                <label for="content">메모 내용:</label>
+                <input type="text" id="content" name="content" value="{{ memo.content }}" required>
+            </div>
+            <div>
+                <label for="details">추가 정보:</label>
+                <textarea id="details" name="details">{{ memo.details }}</textarea>
+            </div>
+            <button type="submit">수정하기</button>
+        </form>
+        <a href="{{ url_for('index') }}">취소</a>
+    {% endblock %}
+    </body>
+</html>
