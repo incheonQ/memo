@@ -31,9 +31,10 @@ def index():
             flash(f'오류가 발생했습니다: {str(e)}', 'error')
         return redirect(url_for('index'))
     
-    memos = Memo.query.order_by(Memo.created_at.desc()).all()
+    page = request.args.get('page', 1, type=int)
+    pagination = Memo.query.order_by(Memo.created_at.desc()).paginate(page=page, per_page=10, error_out=False)
     categories = db.session.query(Memo.category).distinct().all() 
-    return render_template('index.html', memos=memos, categories=categories)
+    return render_template('index.html', pagination=pagination, categories=categories)
 
 @app.route('/edit/<int:id>', methods=['GET', 'POST'])
 def edit(id):
@@ -65,9 +66,10 @@ def delete(id):
 
 @app.route('/category/<category>')
 def filter_by_category(category):
-    memos = Memo.query.filter_by(category=category).order_by(Memo.created_at.desc()).all()
+    page = request.args.get('page', 1, type=int)
+    pagination = Memo.query.filter_by(category=category).order_by(Memo.created_at.desc()).paginate(page=page, per_page=10, error_out=False)
     categories = db.session.query(Memo.category).distinct().all()
-    return render_template('index.html', memos=memos, categories=categories, current_category=category)
+    return render_template('index.html', pagination=pagination, categories=categories, current_category=category)
 
 @app.route('/memo/<int:id>')
 def memo_detail(id):
