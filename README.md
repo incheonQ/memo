@@ -53,7 +53,7 @@
 ### Bash에서 실행
 ```python
 from app import db
-  db.create_all()
+db.create_all()
 ```
 
 ### 데이터베이스 경로 설정
