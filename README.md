@@ -1,5 +1,5 @@
 <h1 align="center">🚀 메모 어플리케이션 웹 서비스 🚀</h1>
-<strong>  <a href="https://kimminkyu.pythonanywhere.com">  </a></strong>
+<strong>  <a href="https://kimminkyu.pythonanywhere.com" align="center"> 👉👉👉사이트로 이동👈👈👈  </a></strong>
 
 ## 📜 프로젝트 설명 📜
 <p>
