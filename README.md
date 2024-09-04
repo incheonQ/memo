@@ -1,6 +1,6 @@
 ## 프로젝트 설명
 <p>
-  이 프로젝트는 <a href='https://www.cursor.com/'></a><strong>AI Code Editor Cursor</strong></a>의 도움을 받아 특정 기술 스텍에 문외한인 사람이 어디까지 개발 가능한가?를 알아보기 위해 시작했습니다.
+  이 프로젝트는 <a href="https://www.cursor.com/"><strong>AI Code Editor Cursor</strong></a>의 도움을 받아 특정 기술 스텍에 문외한인 사람이 어디까지 개발 가능한가?를 알아보기 위해 시작했습니다.
 
   그 결과, 2시간 30분 동안 메모 애플리케이션 웹 서비스를 만드는 데 성공했습니다. (기획부터 배포까지)
 
