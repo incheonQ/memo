@@ -56,6 +56,14 @@ from app import db
   db.create_all()
 ```
 
+### 데이터베이스 경로 설정
+```python
+import os
+basedir = os.path.abspath(os.path.dirname(__file__))
+db_path = os.path.join(basedir, 'memos.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
+```
+
 ### PythonAnywhere의 WSGI 설정 파일
 ```python
 import sys
