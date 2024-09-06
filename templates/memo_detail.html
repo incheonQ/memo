@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메모 상세 - {{ memo.content[:20] }}</title>
+</head>
+<body>
+    {% extends "base.html" %}
+
+{% block title %}메모 상세{% endblock %}
+
+{% block content %}
+    <h1>메모 상세</h1>
+    <div class="memo-detail">
+        <h2>{{ memo.content }}</h2>
+        <p><strong>카테고리:</strong> {{ memo.category if memo.category else '카테고리 없음' }}</p>
+        <p><strong>작성일:</strong> {{ memo.created_at.strftime('%Y-%m-%d %H:%M') }}</p>
+        {% if memo.details %}
+            <p><strong>상세 내용:</strong></p>
+            <p>{{ memo.details }}</p>
+        {% endif %}
+        {% if memo.image_filename %}
+            <div class="memo-image">
+                <a href="{{ url_for('static', filename='uploads/' + memo.image_filename) }}" target="_blank">
+                    <img src="{{ url_for('static', filename='uploads/' + memo.image_filename) }}" alt="Memo Image" style="max-width: 100%; height: auto;">
+                </a>
+            </div>
+        {% endif %}
+    </div>
+    <a href="{{ url_for('index') }}">목록으로 돌아가기</a>
+    <a href="{{ url_for('edit', id=memo.id) }}">수정</a>
+    <a href="{{ url_for('delete', id=memo.id) }}" onclick="return confirm('정말로 삭제하시겠습니까?');">삭제</a>
+{% endblock %}
+</body>
+</html>

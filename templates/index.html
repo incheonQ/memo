@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메모 마스터</title>
+    <style>
+        .pagination {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .pagination a, .pagination strong {
+            padding: 5px 10px;
+            margin: 0 5px;
+            border: 1px solid #ddd;
+            text-decoration: none;
+            color: #333;
+        }
+        .pagination strong {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- <h1>메모 마스터</h1> -->
+
+{% extends "base.html" %}
+
+    {% block content %}
+        <h1 class="mb-4">메모 마스터</h1>
+    
+        {% if current_user and not current_user.is_viewer %}
+        <!-- 메모 작성 폼 -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h2 class="h5 mb-0">새 메모 작성</h2>
+            </div>
+            <div class="card-body">
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="content" class="form-label">메모 내용</label>
+                        <input type="text" class="form-control" id="content" name="content" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="category" class="form-label">카테고리</label>
+                        <input type="text" class="form-control" id="category" name="category">
+                    </div>
+                    <div class="mb-3">
+                        <label for="details" class="form-label">상세 내용</label>
+                        <textarea class="form-control" id="details" name="details" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">이미지 첨부</label>
+                        <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                    </div>
+                    <button type="submit" class="btn btn-primary">메모 추가</button>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+    
+        <!-- 검색 및 필터링 -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h2 class="h5 mb-0">메모 검색 및 필터링</h2>
+            </div>
+            <div class="card-body">
+                <form method="GET" class="row g-3">
+                    <div class="col-md-6">
+                        <label for="search" class="form-label">검색</label>
+                        <input type="text" class="form-control" id="search" name="search" value="{{ search }}">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="category_filter" class="form-label">카테고리 필터</label>
+                        <select class="form-select" id="category_filter" name="category">
+                            <option value="">모든 카테고리</option>
+                            {% for category in categories %}
+                                <option value="{{ category[0] }}" {% if category[0] == current_category %}selected{% endif %}>
+                                    {{ category[0] if category[0] else '카테고리 없음' }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-2 d-flex align-items-end">
+                        <button type="submit" class="btn btn-secondary w-100">적용</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+        <!-- 메모 목록 -->
+        <h2 class="mb-3">메모 목록</h2>
+        {% if pagination.items %}
+            <div class="row">
+                {% for memo in pagination.items %}
+                    <div class="col-md-4 mb-3">
+                        <div class="card {% if memo.category == '중요' %}border-info{% endif %}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ memo.content }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ memo.category if memo.category else '카테고리 없음' }}</h6>
+                                <p class="card-text">
+                                    <small class="text-muted">{{ memo.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+                                </p>
+                                {% if memo.image_filename %}
+                                    <p class="card-text"><small class="text-muted">이미지 첨부됨</small></p>
+                                {% endif %}
+                                <a href="{{ url_for('memo_detail', id=memo.id) }}" class="card-link">상세보기</a>
+                                
+                                {% if current_user and check_memo_permission(memo, current_user) %}
+                                <!-- 수정 및 삭제 버튼 표시 -->
+                                <a href="{{ url_for('edit', id=memo.id) }}" class="card-link">수정</a>
+                                <form action="{{ url_for('delete', id=memo.id) }}" method="POST" class="d-inline">
+                                    <button type="submit" class="btn btn-link p-0 card-link" onclick="return confirm('정말로 삭제하시겠습니까?');">삭제</button>
+                                </form>
+                            {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-center">메모가 없습니다. 새 메모를 작성해보세요!</p>
+        {% endif %}
+    
+        <!-- 페이지네이션 -->
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if pagination.has_prev %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ url_for('index', page=pagination.prev_num, search=search, category=current_category) }}">이전</a>
+                    </li>
+                {% endif %}
+    
+                {% for page in pagination.iter_pages() %}
+                    {% if page %}
+                        <li class="page-item {% if page == pagination.page %}active{% endif %}">
+                            <a class="page-link" href="{{ url_for('index', page=page, search=search, category=current_category) }}">{{ page }}</a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <span class="page-link">...</span>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+    
+                {% if pagination.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ url_for('index', page=pagination.next_num, search=search, category=current_category) }}">다음</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% endblock %}
+
+{% block scripts %}
+<script>
+function filterByCategory(category) {
+    if (category) {
+        window.location.href = "{{ url_for('filter_by_category', category='') }}" + category;
+    } else {
+        window.location.href = "{{ url_for('index') }}";
+    }
+}
+</script>
+{% endblock %}
+</body>
+</html>
